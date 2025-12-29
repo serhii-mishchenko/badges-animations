@@ -1,0 +1,13 @@
+**/node_modules
+package-lock.json
+yarn.lock
+
+shopify.app.toml
+shopify.app.dev.toml
+.shopify
+
+.env
+.env.*
+
+/web/.DS_Store
+shopify.app.bibagift.toml
