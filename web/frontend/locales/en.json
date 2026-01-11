@@ -34,5 +34,17 @@
     },
     "title": "Product Counter",
     "totalProductsHeading": "TOTAL PRODUCTS"
+  },
+  "BadgeSettings": {
+    "title": "Badge Settings",
+    "heading": "Select Default Badge",
+    "description": "Choose a default badge to display on product images. You can select from predefined badges or choose 'None' to disable badges.",
+    "selectLabel": "Default Badge",
+    "selectHelpText": "This badge will be applied to all product images by default.",
+    "previewLabel": "Badge Preview",
+    "previewDescription": "This is how your selected badge will appear on product images.",
+    "saveButton": "Save",
+    "savedSuccessfully": "Badge setting saved successfully",
+    "saveError": "Failed to save badge setting"
   }
 }

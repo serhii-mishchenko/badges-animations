@@ -12,6 +12,9 @@ Rails.application.routes.draw do
         get :count
       end
     end
+    # GET /api/settings/badge and PUT /api/settings/badge
+    get "settings/badge", to: "settings#badge"
+    put "settings/badge", to: "settings#update_badge"
     namespace :webhooks do
       post "/app_uninstalled", to: "app_uninstalled#receive"
       post "/app_scopes_update", to: "app_scopes_update#receive"

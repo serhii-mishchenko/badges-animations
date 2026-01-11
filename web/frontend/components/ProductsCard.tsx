@@ -1,8 +1,12 @@
 import { useState } from "react";
-import { Card, TextContainer, Text } from "@shopify/polaris";
+import { Card, BlockStack, Text } from "@shopify/polaris";
 import { useAppBridge } from "@shopify/app-bridge-react";
 import { useTranslation } from "react-i18next";
 import { useQuery } from "react-query";
+
+interface ProductCountResponse {
+  count: number;
+}
 
 export function ProductsCard() {
   const shopify = useAppBridge();
@@ -14,7 +18,7 @@ export function ProductsCard() {
     data,
     refetch: refetchProductCount,
     isLoading: isLoadingCount,
-  } = useQuery({
+  } = useQuery<ProductCountResponse>({
     queryKey: ["productCount"],
     queryFn: async () => {
       const response = await fetch("/api/products/count");
@@ -23,7 +27,7 @@ export function ProductsCard() {
     refetchOnWindowFocus: false,
   });
 
-  const setPopulating = (flag) => {
+  const setPopulating = (flag: boolean) => {
     shopify.loading(flag);
     setIsPopulating(flag);
   };
@@ -59,7 +63,7 @@ export function ProductsCard() {
         loading: isPopulating,
       }}
     >
-      <TextContainer spacing="loose">
+      <BlockStack gap="loose">
         <p>{t("ProductsCard.description")}</p>
         <Text as="h4" variant="headingMd">
           {t("ProductsCard.totalProductsHeading")}
@@ -67,7 +71,7 @@ export function ProductsCard() {
             {isLoadingCount ? "-" : data?.count}
           </Text>
         </Text>
-      </TextContainer>
+      </BlockStack>
     </Card>
   );
 }

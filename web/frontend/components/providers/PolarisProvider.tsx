@@ -1,9 +1,16 @@
-import { useCallback } from "react";
+import { useCallback, ReactNode } from "react";
 import { AppProvider } from "@shopify/polaris";
 import "@shopify/polaris/build/esm/styles.css";
-import { getPolarisTranslations } from "../../utils/i18nUtils";
+import { getPolarisTranslations } from "./../../utils/i18nUtils";
 
-function AppBridgeLink({ url, children, external, ...rest }) {
+interface AppBridgeLinkProps {
+  url: string;
+  children?: ReactNode;
+  external?: boolean;
+  [key: string]: unknown;
+}
+
+function AppBridgeLink({ url, children, external, ...rest }: AppBridgeLinkProps) {
   const handleClick = useCallback(() => window.open(url), [url]);
 
   const IS_EXTERNAL_LINK_REGEX = /^(?:[a-z][a-z\d+.-]*:|\/\/)/;
@@ -43,7 +50,7 @@ function AppBridgeLink({ url, children, external, ...rest }) {
  * PolarisProvider also passes translations to Polaris.
  *
  */
-export function PolarisProvider({ children }) {
+export function PolarisProvider({ children }: { children: ReactNode }): JSX.Element {
   const translations = getPolarisTranslations();
 
   return (

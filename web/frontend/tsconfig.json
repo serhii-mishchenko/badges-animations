@@ -1,0 +1,34 @@
+{
+  "compilerOptions": {
+    "target": "ES2020",
+    // "useDefineForClassFields": true,
+    // "lib": ["ES2020", "DOM", "DOM.Iterable"],
+    /* Specify what module code is generated. */
+    "module": "commonjs",
+    // "moduleResolution": "bundler",
+    "allowImportingTsExtensions": true,
+    // "resolveJsonModule": true,
+    // "isolatedModules": true,
+    "noEmit": true,
+    "jsx": "react-jsx",
+    /* Specify module specifier used to import the JSX factory functions when using 'jsx: react-jsx*'. */
+    "jsxImportSource": "react",
+    /* Allow JavaScript files to be a part of your program. Use the 'checkJS' option to get errors from these files. */
+    "allowJs": true,
+    "strict": true,
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
+    "noFallthroughCasesInSwitch": true,
+    /* Emit additional JavaScript to ease support for importing CommonJS modules. This enables 'allowSyntheticDefaultImports' for type compatibility. */
+    "esModuleInterop": true,
+    "allowSyntheticDefaultImports": true,
+    /* Ensure that casing is correct in imports. */
+    "forceConsistentCasingInFileNames": true,
+    "types": ["react", "react-dom", "@shopify/app-bridge-types"],
+    /* Skip type checking all .d.ts files. */
+    "skipLibCheck": true
+  },
+  "include": ["**/*.ts", "**/*.tsx", "**/*.d.ts"],
+  "exclude": ["node_modules", "dist", "build", "vite.config.d.ts"],
+  "references": [{ "path": "./tsconfig.node.json" }]
+}

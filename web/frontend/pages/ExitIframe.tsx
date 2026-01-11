@@ -11,21 +11,28 @@ export default function ExitIframe() {
   app.loading(true);
 
   useEffect(() => {
-    if (!!app && !!search) {
+    if (app && search) {
       const params = new URLSearchParams(search);
       const redirectUri = params.get("redirectUri");
-      const url = new URL(decodeURIComponent(redirectUri));
+      if (!redirectUri) return;
+      
+      try {
+        const url = new URL(decodeURIComponent(redirectUri));
 
-      if (
-        [location.hostname, "admin.shopify.com"].includes(url.hostname) ||
-        url.hostname.endsWith(".myshopify.com")
-      ) {
-        window.open(redirectUri, "_top");
-      } else {
+        if (
+          [window.location.hostname, "admin.shopify.com"].includes(url.hostname) ||
+          url.hostname.endsWith(".myshopify.com")
+        ) {
+          window.open(redirectUri, "_top");
+        } else {
+          setShowWarning(true);
+        }
+      } catch (error) {
+        console.error("Invalid redirect URI:", error);
         setShowWarning(true);
       }
     }
-  }, [app, search, setShowWarning]);
+  }, [app, search]);
 
   return showWarning ? (
     <Page narrowWidth>

@@ -1,0 +1,11 @@
+export { default as notFoundImage } from "./empty-state.svg";
+export { default as trophyImage } from "./home-trophy.png";
+export { default as bestBadge } from "./best.png";
+export { default as ecoBadge } from "./eco.png";
+export { default as exclusiveBadge } from "./exclusive.png";
+export { default as handmadeBadge } from "./handmade.png";
+export { default as limitedBadge } from "./limited.png";
+export { default as newBadge } from "./new.png";
+export { default as preorderBadge } from "./preorder.png";
+export { default as saleBadge } from "./Sale.png";
+export { default as topBadge } from "./top.png";
