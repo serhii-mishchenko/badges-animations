@@ -1,0 +1,10 @@
+# Learn more about configuring your Theme App Extension:
+# https://shopify.dev/docs/apps/online-store/theme-app-extensions
+
+api_version = "2025-10"
+
+[[extensions]]
+uid = "00b41c85-ab82-4c9d-e9a2-e362c11c6ba074ef2c23"
+name = "badges-animation"
+type = "theme"
+handle = "badges-animation"

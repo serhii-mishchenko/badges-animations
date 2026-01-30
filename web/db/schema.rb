@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2026_01_09_101636) do
+ActiveRecord::Schema[7.1].define(version: 2026_01_20_223929) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -36,6 +36,7 @@ ActiveRecord::Schema[7.1].define(version: 2026_01_09_101636) do
     t.datetime "expires_at"
     t.string "refresh_token"
     t.datetime "refresh_token_expires_at"
+    t.jsonb "settings", default: {}
     t.index ["shopify_domain"], name: "index_shops_on_shopify_domain", unique: true
   end
 

@@ -1,0 +1,18 @@
+{% comment %}
+  badges-animation App Embed Block
+  This block injects JavaScript to overlay badges on product images
+  No theme modification required - automatically injected on all pages
+{% endcomment %}
+
+{% schema %}
+{
+  "name": "badges-animation",
+  "target": "body",
+  "javascript": "badges-animation.js",
+  "settings": []
+}
+{% endschema %}
+
+<script>
+  window.badgesAnimationSettings = {};
+</script>

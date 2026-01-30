@@ -11,7 +11,9 @@
     "deploy": "shopify app deploy",
     "info": "shopify app info"
   },
-  "dependencies": {},
+  "dependencies": {
+    "mixpanel-browser": "^2.73.0"
+  },
   "author": "Владимир",
   "private": true,
   "workspaces": [

@@ -27,6 +27,9 @@ import {
 } from "../assets";
 import { BadgesSelect } from "../components/BadgesSelect";
 import { BadgeOption } from "../components/types";
+import { useGetAppEmbedsStatus } from "@/hooks/api/useSettingsApi";
+// import { rails2TsxParameters } from '@/shared/utils/transformers';
+import { SetupGuide } from '@/components/SetupGuide';
 
 // interface BadgeOption {
 //   label: string;
@@ -62,6 +65,18 @@ const BADGE_IMAGES: Record<string, string> = {
 interface BadgeData {
   badge: string;
 }
+
+// const makeInitSettings = () => {
+//   if (!window.BadgesAnimationHomePage) return null;
+
+//   const settings = {
+//     ...rails2TsxParameters(window.BadgesAnimationHomePage),
+//   };
+
+//   window.BadgesAnimationHomePage = null;
+
+//   return settings;
+// };
 
 export default function HomePage() {
   const { t } = useTranslation();
@@ -135,6 +150,9 @@ export default function HomePage() {
     },
   ];
 
+  const { data: currentAppEmbedsStatus, isLoading: isLoadingAppEmbedsStatus } = useGetAppEmbedsStatus();
+  const appEmbedsStatus = currentAppEmbedsStatus || false;
+
   return (
     <Page
       narrowWidth
@@ -142,6 +160,7 @@ export default function HomePage() {
       primaryAction={pageActions[0]}
     >
       <TitleBar title={t("BadgeSettings.title")} />
+      <SetupGuide appEmbedsStatus={appEmbedsStatus} isLoadingAppEmbedsStatus={isLoadingAppEmbedsStatus} />
       <Layout.Section>
         <Card sectioned>
           <BlockStack gap="400">

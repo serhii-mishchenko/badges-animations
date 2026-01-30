@@ -5,6 +5,9 @@ class Shop < ActiveRecord::Base
 
   has_many :badge_settings, dependent: :destroy
 
+  # Ensure settings defaults to empty hash
+  attribute :settings, :jsonb, default: {}
+
   def api_version
     ShopifyApp.configuration.api_version
   end
